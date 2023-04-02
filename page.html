@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="" style="background-image: url(images/book.avif);">
+    <ul id="hero" class="bg-Grey px-10 py-6 rounded-lg font-medium my-10 mx-10 rounded-xl">
+    </ul>
+    <ul id="hero2" class="bg-Grey px-10 py-6 rounded-lg font-medium my-10 mx-10 rounded-xl">
+    </ul>
+    <script>
+     // Create a new XMLHttpRequest object for ID file
+let xhr1 = new XMLHttpRequest();
+
+// Define the URL of the ID text file
+let url1 = "cluqn.txt";
+
+// Open the ID file using the GET method
+xhr1.open("GET", url1, true);
+
+// Define the callback function for when the ID file is loaded
+xhr1.onload = function() {
+	// Check if the status code is OK
+	if (xhr1.status === 200) {
+		// Split the ID text file content into an array of lines
+		let lines1 = xhr1.responseText.split("\n");
+
+		// Get the unordered list element for ID list from the HTML page
+		let ul1 = document.getElementById("hero");
+
+		// Loop through each line and add it as a list item to the unordered list for ID list
+		for (let i = 0; i < lines1.length; i++) {
+			let li1 = document.createElement("li");
+			let text1 = document.createTextNode(lines1[i]);
+			li1.appendChild(text1);
+			ul1.appendChild(li1);
+		}
+	}
+};
+
+// Send the request to the server for ID file
+xhr1.send();
+
+
+// Create a new XMLHttpRequest object for text file
+let xhr2 = new XMLHttpRequest();
+
+// Define the URL of the text file
+let url2 = "reply.txt";
+
+// Open the text file using the GET method
+xhr2.open("GET", url2, true);
+
+// Define the callback function for when the text file is loaded
+xhr2.onload = function() {
+	// Check if the status code is OK
+	if (xhr2.status === 200) {
+		// Split the text file content into an array of lines
+		let lines2 = xhr2.responseText.split("\n");
+
+		// Get the unordered list element from the HTML page
+		let ul2 = document.getElementById("hero2");
+
+		// Loop through each line and add it as a list item to the unordered list for text list
+		for (let i = 0; i < lines2.length; i++) {
+			let li2 = document.createElement("li");
+			let text2 = document.createTextNode(lines2[i]);
+			li2.appendChild(text2);
+			ul2.appendChild(li2);
+		}
+	}
+};
+
+// Send the request to the server for text file
+xhr2.send();
+      </script>
+    
+
+</body>
